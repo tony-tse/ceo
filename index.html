@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -21,31 +20,28 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; }
 
 body {
-background: var(–ink);
-color: var(–text);
-font-family: ‘Montserrat’, sans-serif;
+background: var(--ink);
+color: var(--text);
+font-family: 'Montserrat', sans-serif;
 font-weight: 300;
 font-size: 15px;
 line-height: 1.8;
 overflow-x: hidden;
 }
 
-/* ── NOISE TEXTURE ── */
 body::before {
-content: ‘’;
+content: '';
 position: fixed;
 inset: 0;
-background-image: url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 256 256’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘noise’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.9’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23noise)’ opacity=‘0.04’/%3E%3C/svg%3E”);
+background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
 pointer-events: none;
 z-index: 0;
 opacity: 0.6;
 }
 
-/* ── NAV ── */
 nav {
 position: fixed;
 top: 0; left: 0; right: 0;
@@ -59,11 +55,11 @@ backdrop-filter: blur(4px);
 }
 
 .nav-logo {
-font-family: ‘Cormorant Garant’, serif;
+font-family: 'Cormorant Garant', serif;
 font-size: 22px;
 font-weight: 300;
 letter-spacing: 0.15em;
-color: var(–gold);
+color: var(--gold);
 }
 
 .nav-links {
@@ -73,7 +69,7 @@ list-style: none;
 }
 
 .nav-links a {
-color: var(–text-muted);
+color: var(--text-muted);
 text-decoration: none;
 font-size: 11px;
 letter-spacing: 0.2em;
@@ -81,9 +77,8 @@ text-transform: uppercase;
 transition: color 0.3s;
 }
 
-.nav-links a:hover { color: var(–gold); }
+.nav-links a:hover { color: var(--gold); }
 
-/* ── HERO ── */
 .hero {
 min-height: 100vh;
 display: flex;
@@ -108,7 +103,7 @@ position: absolute;
 top: 0; bottom: 0;
 left: 52%;
 width: 1px;
-background: linear-gradient(to bottom, transparent, var(–gold) 30%, var(–gold) 70%, transparent);
+background: linear-gradient(to bottom, transparent, var(--gold) 30%, var(--gold) 70%, transparent);
 opacity: 0.15;
 }
 
@@ -116,7 +111,7 @@ opacity: 0.15;
 font-size: 11px;
 letter-spacing: 0.3em;
 text-transform: uppercase;
-color: var(–gold);
+color: var(--gold);
 margin-bottom: 24px;
 position: relative;
 z-index: 1;
@@ -125,7 +120,7 @@ animation: fadeUp 0.8s 0.2s forwards;
 }
 
 .hero-name {
-font-family: ‘Cormorant Garant’, serif;
+font-family: 'Cormorant Garant', serif;
 font-size: clamp(72px, 10vw, 140px);
 font-weight: 300;
 line-height: 0.9;
@@ -138,7 +133,7 @@ animation: fadeUp 0.9s 0.4s forwards;
 
 .hero-name em {
 font-style: italic;
-color: var(–gold);
+color: var(--gold);
 }
 
 .hero-descriptor {
@@ -156,13 +151,13 @@ animation: fadeUp 0.9s 0.6s forwards;
 font-size: 11px;
 letter-spacing: 0.2em;
 text-transform: uppercase;
-color: var(–text-muted);
+color: var(--text-muted);
 }
 
 .hero-descriptor .divider {
 width: 40px;
 height: 1px;
-background: var(–gold);
+background: var(--gold);
 opacity: 0.4;
 }
 
@@ -181,10 +176,10 @@ animation: fadeIn 1s 1s forwards;
 .stat { text-align: right; }
 
 .stat-num {
-font-family: ‘Cormorant Garant’, serif;
+font-family: 'Cormorant Garant', serif;
 font-size: 48px;
 font-weight: 300;
-color: var(–gold);
+color: var(--gold);
 line-height: 1;
 }
 
@@ -192,7 +187,7 @@ line-height: 1;
 font-size: 10px;
 letter-spacing: 0.2em;
 text-transform: uppercase;
-color: var(–text-muted);
+color: var(--text-muted);
 }
 
 .scroll-cue {
@@ -213,17 +208,16 @@ animation: fadeIn 1s 1.4s forwards;
 font-size: 9px;
 letter-spacing: 0.3em;
 text-transform: uppercase;
-color: var(–text-muted);
+color: var(--text-muted);
 }
 
 .scroll-line {
 width: 1px;
 height: 40px;
-background: linear-gradient(to bottom, var(–gold), transparent);
+background: linear-gradient(to bottom, var(--gold), transparent);
 animation: scrollPulse 2s infinite;
 }
 
-/* ── SECTIONS ── */
 section {
 position: relative;
 z-index: 1;
@@ -234,7 +228,7 @@ padding: 100px 60px;
 font-size: 10px;
 letter-spacing: 0.35em;
 text-transform: uppercase;
-color: var(–gold);
+color: var(--gold);
 margin-bottom: 60px;
 display: flex;
 align-items: center;
@@ -242,16 +236,16 @@ gap: 20px;
 }
 
 .section-label::after {
-content: ‘’;
+content: '';
 flex: 1;
 max-width: 80px;
 height: 1px;
-background: var(–gold);
+background: var(--gold);
 opacity: 0.3;
 }
 
 .section-title {
-font-family: ‘Cormorant Garant’, serif;
+font-family: 'Cormorant Garant', serif;
 font-size: clamp(40px, 5vw, 68px);
 font-weight: 300;
 line-height: 1.05;
@@ -260,12 +254,11 @@ margin-bottom: 60px;
 
 .section-title em {
 font-style: italic;
-color: var(–gold);
+color: var(--gold);
 }
 
-/* ── ABOUT ── */
 .about {
-background: var(–surface);
+background: var(--surface);
 display: grid;
 grid-template-columns: 1fr 1.4fr;
 gap: 80px;
@@ -275,15 +268,15 @@ align-items: start;
 .about-left { padding-top: 10px; }
 
 .about-bio {
-font-family: ‘Cormorant Garant’, serif;
+font-family: 'Cormorant Garant', serif;
 font-size: 22px;
 font-weight: 300;
 line-height: 1.6;
-color: var(–text);
+color: var(--text);
 margin-bottom: 32px;
 }
 
-.about-bio em { font-style: italic; color: var(–gold); }
+.about-bio em { font-style: italic; color: var(--gold); }
 
 .about-details {
 display: grid;
@@ -292,21 +285,20 @@ gap: 24px;
 margin-top: 40px;
 }
 
-.detail-item {}
 .detail-key {
 font-size: 9px;
 letter-spacing: 0.3em;
 text-transform: uppercase;
-color: var(–gold);
+color: var(--gold);
 margin-bottom: 4px;
 }
+
 .detail-val {
 font-size: 14px;
-color: var(–text);
+color: var(--text);
 }
 
-/* ── TIMELINE ── */
-.timeline-section { background: var(–ink); }
+.timeline-section { background: var(--ink); }
 
 .timeline {
 position: relative;
@@ -314,11 +306,11 @@ padding-left: 32px;
 }
 
 .timeline::before {
-content: ‘’;
+content: '';
 position: absolute;
 left: 0; top: 8px; bottom: 0;
 width: 1px;
-background: linear-gradient(to bottom, var(–gold), transparent);
+background: linear-gradient(to bottom, var(--gold), transparent);
 opacity: 0.25;
 }
 
@@ -336,25 +328,25 @@ transform: translateX(0);
 }
 
 .timeline-item::before {
-content: ‘’;
+content: '';
 position: absolute;
 left: -36px;
 top: 10px;
 width: 8px; height: 8px;
 border-radius: 50%;
-background: var(–gold);
+background: var(--gold);
 box-shadow: 0 0 12px rgba(201,168,76,0.5);
 }
 
 .timeline-period {
 font-size: 10px;
 letter-spacing: 0.2em;
-color: var(–gold);
+color: var(--gold);
 margin-bottom: 4px;
 }
 
 .timeline-role {
-font-family: ‘Cormorant Garant’, serif;
+font-family: 'Cormorant Garant', serif;
 font-size: 26px;
 font-weight: 400;
 margin-bottom: 2px;
@@ -364,7 +356,7 @@ margin-bottom: 2px;
 font-size: 11px;
 letter-spacing: 0.15em;
 text-transform: uppercase;
-color: var(–text-muted);
+color: var(--text-muted);
 margin-bottom: 14px;
 }
 
@@ -384,18 +376,15 @@ line-height: 1.65;
 }
 
 .timeline-points li::before {
-content: ‘—’;
+content: '—';
 position: absolute;
 left: 0;
-color: var(–gold);
+color: var(--gold);
 opacity: 0.5;
 font-size: 11px;
 }
 
-/* ── EXPERTISE ── */
-.expertise-section {
-background: var(–surface);
-}
+.expertise-section { background: var(--surface); }
 
 .expertise-grid {
 display: grid;
@@ -404,7 +393,7 @@ gap: 2px;
 }
 
 .expertise-card {
-background: var(–surface2);
+background: var(--surface2);
 padding: 48px 40px;
 border: 1px solid transparent;
 transition: border-color 0.4s, background 0.4s;
@@ -413,30 +402,30 @@ overflow: hidden;
 }
 
 .expertise-card::before {
-content: ‘’;
+content: '';
 position: absolute;
 top: 0; left: 0; right: 0;
 height: 2px;
-background: linear-gradient(to right, transparent, var(–gold), transparent);
+background: linear-gradient(to right, transparent, var(--gold), transparent);
 transform: scaleX(0);
 transition: transform 0.4s;
 }
 
-.expertise-card:hover { border-color: var(–border); background: #1a1a26; }
+.expertise-card:hover { border-color: var(--border); background: #1a1a26; }
 .expertise-card:hover::before { transform: scaleX(1); }
 
 .expertise-num {
-font-family: ‘Cormorant Garant’, serif;
+font-family: 'Cormorant Garant', serif;
 font-size: 48px;
 font-weight: 300;
-color: var(–gold);
+color: var(--gold);
 opacity: 0.25;
 line-height: 1;
 margin-bottom: 20px;
 }
 
 .expertise-title {
-font-family: ‘Cormorant Garant’, serif;
+font-family: 'Cormorant Garant', serif;
 font-size: 24px;
 font-weight: 400;
 margin-bottom: 12px;
@@ -444,12 +433,11 @@ margin-bottom: 12px;
 
 .expertise-desc {
 font-size: 13px;
-color: var(–text-muted);
+color: var(--text-muted);
 line-height: 1.7;
 }
 
-/* ── SPEAKING ── */
-.speaking-section { background: var(–ink); }
+.speaking-section { background: var(--ink); }
 
 .speaking-topics {
 display: grid;
@@ -458,21 +446,18 @@ gap: 24px;
 }
 
 .topic-item {
-border: 1px solid var(–border);
+border: 1px solid var(--border);
 padding: 32px 36px;
 position: relative;
 transition: background 0.3s;
 }
 
-.topic-item:hover { background: var(–gold-dim); }
+.topic-item:hover { background: var(--gold-dim); }
 
-.topic-icon {
-font-size: 28px;
-margin-bottom: 16px;
-}
+.topic-icon { font-size: 28px; margin-bottom: 16px; }
 
 .topic-title {
-font-family: ‘Cormorant Garant’, serif;
+font-family: 'Cormorant Garant', serif;
 font-size: 22px;
 font-weight: 400;
 margin-bottom: 8px;
@@ -480,11 +465,10 @@ margin-bottom: 8px;
 
 .topic-desc {
 font-size: 13px;
-color: var(–text-muted);
+color: var(--text-muted);
 line-height: 1.65;
 }
 
-/* ── SUSTAINABILITY ── */
 .sustainability-section {
 background: linear-gradient(135deg, #0A0A0F 0%, #0C1008 50%, #0A0A0F 100%);
 border-top: 1px solid rgba(201,168,76,0.1);
@@ -499,14 +483,14 @@ align-items: center;
 }
 
 .sustain-highlight {
-font-family: ‘Cormorant Garant’, serif;
+font-family: 'Cormorant Garant', serif;
 font-size: clamp(32px, 4vw, 52px);
 font-weight: 300;
 line-height: 1.2;
 margin-bottom: 28px;
 }
 
-.sustain-highlight em { font-style: italic; color: var(–gold); }
+.sustain-highlight em { font-style: italic; color: var(--gold); }
 
 .sustain-stats {
 display: flex;
@@ -519,26 +503,25 @@ display: flex;
 gap: 24px;
 align-items: flex-start;
 padding-bottom: 32px;
-border-bottom: 1px solid var(–border);
+border-bottom: 1px solid var(--border);
 }
 
 .sustain-stat:last-child { border-bottom: none; padding-bottom: 0; }
 
 .sustain-num {
-font-family: ‘Cormorant Garant’, serif;
+font-family: 'Cormorant Garant', serif;
 font-size: 44px;
 font-weight: 300;
-color: var(–gold);
+color: var(--gold);
 line-height: 1;
 min-width: 120px;
 }
 
-.sustain-label { font-size: 13px; color: var(–text-muted); line-height: 1.6; }
-.sustain-label strong { display: block; color: var(–text); font-weight: 400; margin-bottom: 4px; font-size: 15px; }
+.sustain-label { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+.sustain-label strong { display: block; color: var(--text); font-weight: 400; margin-bottom: 4px; font-size: 15px; }
 
-/* ── CONTACT ── */
 .contact-section {
-background: var(–surface);
+background: var(--surface);
 text-align: center;
 padding: 120px 60px;
 }
@@ -547,7 +530,7 @@ padding: 120px 60px;
 .contact-section .section-label::after { display: none; }
 
 .contact-tagline {
-font-family: ‘Cormorant Garant’, serif;
+font-family: 'Cormorant Garant', serif;
 font-size: clamp(36px, 5vw, 64px);
 font-weight: 300;
 line-height: 1.15;
@@ -555,7 +538,7 @@ max-width: 700px;
 margin: 0 auto 60px;
 }
 
-.contact-tagline em { font-style: italic; color: var(–gold); }
+.contact-tagline em { font-style: italic; color: var(--gold); }
 
 .contact-cards {
 display: flex;
@@ -566,29 +549,29 @@ margin-bottom: 60px;
 }
 
 .contact-card {
-border: 1px solid var(–border);
+border: 1px solid var(--border);
 padding: 28px 40px;
 text-decoration: none;
-color: var(–text);
+color: var(--text);
 transition: background 0.3s, border-color 0.3s;
 min-width: 200px;
 }
 
 .contact-card:hover {
-background: var(–gold-dim);
-border-color: var(–gold);
+background: var(--gold-dim);
+border-color: var(--gold);
 }
 
 .contact-card-label {
 font-size: 9px;
 letter-spacing: 0.3em;
 text-transform: uppercase;
-color: var(–gold);
+color: var(--gold);
 margin-bottom: 8px;
 }
 
 .contact-card-val {
-font-family: ‘Cormorant Garant’, serif;
+font-family: 'Cormorant Garant', serif;
 font-size: 18px;
 }
 
@@ -597,11 +580,10 @@ text-align: center;
 padding: 32px;
 font-size: 11px;
 letter-spacing: 0.15em;
-color: var(–text-muted);
-border-top: 1px solid var(–border);
+color: var(--text-muted);
+border-top: 1px solid var(--border);
 }
 
-/* ── ANIMATIONS ── */
 @keyframes fadeUp {
 from { opacity: 0; transform: translateY(30px); }
 to { opacity: 1; transform: translateY(0); }
@@ -619,7 +601,6 @@ to { opacity: 1; }
 100% { transform: scaleY(0); transform-origin: bottom; }
 }
 
-/* ── RESPONSIVE ── */
 @media (max-width: 900px) {
 nav { padding: 20px 24px; }
 .nav-links { display: none; }
@@ -631,11 +612,8 @@ section { padding: 70px 24px; }
 .contact-section { padding: 80px 24px; }
 }
 </style>
-
 </head>
 <body>
-
-<!-- NAV -->
 
 <nav>
 <div class="nav-logo">Tony Tse</div>
@@ -648,16 +626,11 @@ section { padding: 70px 24px; }
 </ul>
 </nav>
 
-<!-- HERO -->
-
 <div class="hero">
 <div class="hero-bg"></div>
 <div class="hero-line"></div>
-
 <p class="hero-tag">Global Business Leader · ESG Pioneer · Conference Speaker</p>
-
 <h1 class="hero-name">Tony<br><em>Tse</em></h1>
-
 <div class="hero-descriptor">
 <span>Asia Pacific</span>
 <div class="divider"></div>
@@ -665,7 +638,6 @@ section { padding: 70px 24px; }
 <div class="divider"></div>
 <span>Sustainable Futures</span>
 </div>
-
 <div class="hero-stats">
 <div class="stat">
 <div class="stat-num">35+</div>
@@ -680,14 +652,11 @@ section { padding: 70px 24px; }
 <div class="stat-label">Bottles Recovered</div>
 </div>
 </div>
-
 <div class="scroll-cue">
 <span>Scroll</span>
 <div class="scroll-line"></div>
 </div>
 </div>
-
-<!-- ABOUT -->
 
 <section class="about" id="about">
 <div class="about-left">
@@ -725,15 +694,11 @@ Today, Tony is the Founder and CEO of Major 7 Global Sustainability Co. Ltd., pa
 </div>
 </section>
 
-<!-- CAREER -->
-
 <section class="timeline-section" id="career">
 <p class="section-label">Career</p>
 <h2 class="section-title">A legacy of<br><em>firsts</em></h2>
-
 <div class="timeline">
 
-```
 <div class="timeline-item">
 <div class="timeline-period">2022 — Present</div>
 <div class="timeline-role">Founder & CEO</div>
@@ -808,12 +773,9 @@ Today, Tony is the Founder and CEO of Major 7 Global Sustainability Co. Ltd., pa
 <li>Served the Cantonese-speaking business community in Vancouver's Chinatown</li>
 </ul>
 </div>
-```
 
 </div>
 </section>
-
-<!-- EXPERTISE -->
 
 <section class="expertise-section" id="expertise">
 <p class="section-label">Expertise</p>
@@ -851,8 +813,6 @@ Today, Tony is the Founder and CEO of Major 7 Global Sustainability Co. Ltd., pa
 </div>
 </div>
 </section>
-
-<!-- SUSTAINABILITY -->
 
 <section class="sustainability-section">
 <div class="sustainability-inner">
@@ -892,8 +852,6 @@ Regional China supply chain cooperation aligned to United Nations Sustainable De
 </div>
 </section>
 
-<!-- SPEAKING -->
-
 <section class="speaking-section" id="speaking">
 <p class="section-label">Speaking</p>
 <h2 class="section-title">Conference<br><em>topics</em></h2>
@@ -920,8 +878,6 @@ Regional China supply chain cooperation aligned to United Nations Sustainable De
 </div>
 </div>
 </section>
-
-<!-- CONTACT -->
 
 <section class="contact-section" id="contact">
 <p class="section-label">Contact</p>
@@ -950,7 +906,6 @@ Tony Tse &nbsp;·&nbsp; Global Business Leader &nbsp;·&nbsp; ESG Pioneer &nbsp;
 </footer>
 
 <script>
-// Scroll reveal for timeline items
 const observer = new IntersectionObserver((entries) => {
 entries.forEach((entry, i) => {
 if (entry.isIntersecting) {
@@ -958,7 +913,6 @@ setTimeout(() => entry.target.classList.add('visible'), i * 80);
 }
 });
 }, { threshold: 0.15 });
-
 document.querySelectorAll('.timeline-item').forEach(el => observer.observe(el));
 </script>
 
