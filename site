@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tony Tse — Global Business Leader</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+--gold: #C9A84C;
+--gold-light: #E8CC7A;
+--gold-dim: rgba(201,168,76,0.15);
+--ink: #0A0A0F;
+--surface: #0F0F18;
+--surface2: #15151F;
+--text: #E8E4DC;
+--text-muted: #8A8578;
+--border: rgba(201,168,76,0.2);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+background: var(–ink);
+color: var(–text);
+font-family: ‘Montserrat’, sans-serif;
+font-weight: 300;
+font-size: 15px;
+line-height: 1.8;
+overflow-x: hidden;
+}
+
+/* ── NOISE TEXTURE ── */
+body::before {
+content: ‘’;
+position: fixed;
+inset: 0;
+background-image: url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 256 256’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘noise’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.9’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23noise)’ opacity=‘0.04’/%3E%3C/svg%3E”);
+pointer-events: none;
+z-index: 0;
+opacity: 0.6;
+}
+
+/* ── NAV ── */
+nav {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 100;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 24px 60px;
+background: linear-gradient(to bottom, rgba(10,10,15,0.95), transparent);
+backdrop-filter: blur(4px);
+}
+
+.nav-logo {
+font-family: ‘Cormorant Garant’, serif;
+font-size: 22px;
+font-weight: 300;
+letter-spacing: 0.15em;
+color: var(–gold);
+}
+
+.nav-links {
+display: flex;
+gap: 40px;
+list-style: none;
+}
+
+.nav-links a {
+color: var(–text-muted);
+text-decoration: none;
+font-size: 11px;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(–gold); }
+
+/* ── HERO ── */
+.hero {
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+padding: 0 60px 80px;
+position: relative;
+overflow: hidden;
+}
+
+.hero-bg {
+position: absolute;
+inset: 0;
+background:
+radial-gradient(ellipse 60% 60% at 75% 40%, rgba(201,168,76,0.07) 0%, transparent 70%),
+radial-gradient(ellipse 40% 50% at 20% 70%, rgba(201,168,76,0.04) 0%, transparent 60%),
+linear-gradient(165deg, #0A0A0F 0%, #0F0F1A 50%, #0A0A12 100%);
+}
+
+.hero-line {
+position: absolute;
+top: 0; bottom: 0;
+left: 52%;
+width: 1px;
+background: linear-gradient(to bottom, transparent, var(–gold) 30%, var(–gold) 70%, transparent);
+opacity: 0.15;
+}
+
+.hero-tag {
+font-size: 11px;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 24px;
+position: relative;
+z-index: 1;
+opacity: 0;
+animation: fadeUp 0.8s 0.2s forwards;
+}
+
+.hero-name {
+font-family: ‘Cormorant Garant’, serif;
+font-size: clamp(72px, 10vw, 140px);
+font-weight: 300;
+line-height: 0.9;
+letter-spacing: -0.02em;
+position: relative;
+z-index: 1;
+opacity: 0;
+animation: fadeUp 0.9s 0.4s forwards;
+}
+
+.hero-name em {
+font-style: italic;
+color: var(–gold);
+}
+
+.hero-descriptor {
+margin-top: 28px;
+display: flex;
+align-items: center;
+gap: 24px;
+position: relative;
+z-index: 1;
+opacity: 0;
+animation: fadeUp 0.9s 0.6s forwards;
+}
+
+.hero-descriptor span {
+font-size: 11px;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–text-muted);
+}
+
+.hero-descriptor .divider {
+width: 40px;
+height: 1px;
+background: var(–gold);
+opacity: 0.4;
+}
+
+.hero-stats {
+position: absolute;
+right: 60px;
+bottom: 80px;
+display: flex;
+flex-direction: column;
+gap: 32px;
+z-index: 1;
+opacity: 0;
+animation: fadeIn 1s 1s forwards;
+}
+
+.stat { text-align: right; }
+
+.stat-num {
+font-family: ‘Cormorant Garant’, serif;
+font-size: 48px;
+font-weight: 300;
+color: var(–gold);
+line-height: 1;
+}
+
+.stat-label {
+font-size: 10px;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–text-muted);
+}
+
+.scroll-cue {
+position: absolute;
+bottom: 32px;
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 8px;
+z-index: 1;
+opacity: 0;
+animation: fadeIn 1s 1.4s forwards;
+}
+
+.scroll-cue span {
+font-size: 9px;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–text-muted);
+}
+
+.scroll-line {
+width: 1px;
+height: 40px;
+background: linear-gradient(to bottom, var(–gold), transparent);
+animation: scrollPulse 2s infinite;
+}
+
+/* ── SECTIONS ── */
+section {
+position: relative;
+z-index: 1;
+padding: 100px 60px;
+}
+
+.section-label {
+font-size: 10px;
+letter-spacing: 0.35em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 60px;
+display: flex;
+align-items: center;
+gap: 20px;
+}
+
+.section-label::after {
+content: ‘’;
+flex: 1;
+max-width: 80px;
+height: 1px;
+background: var(–gold);
+opacity: 0.3;
+}
+
+.section-title {
+font-family: ‘Cormorant Garant’, serif;
+font-size: clamp(40px, 5vw, 68px);
+font-weight: 300;
+line-height: 1.05;
+margin-bottom: 60px;
+}
+
+.section-title em {
+font-style: italic;
+color: var(–gold);
+}
+
+/* ── ABOUT ── */
+.about {
+background: var(–surface);
+display: grid;
+grid-template-columns: 1fr 1.4fr;
+gap: 80px;
+align-items: start;
+}
+
+.about-left { padding-top: 10px; }
+
+.about-bio {
+font-family: ‘Cormorant Garant’, serif;
+font-size: 22px;
+font-weight: 300;
+line-height: 1.6;
+color: var(–text);
+margin-bottom: 32px;
+}
+
+.about-bio em { font-style: italic; color: var(–gold); }
+
+.about-details {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 24px;
+margin-top: 40px;
+}
+
+.detail-item {}
+.detail-key {
+font-size: 9px;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 4px;
+}
+.detail-val {
+font-size: 14px;
+color: var(–text);
+}
+
+/* ── TIMELINE ── */
+.timeline-section { background: var(–ink); }
+
+.timeline {
+position: relative;
+padding-left: 32px;
+}
+
+.timeline::before {
+content: ‘’;
+position: absolute;
+left: 0; top: 8px; bottom: 0;
+width: 1px;
+background: linear-gradient(to bottom, var(–gold), transparent);
+opacity: 0.25;
+}
+
+.timeline-item {
+position: relative;
+margin-bottom: 56px;
+opacity: 0;
+transform: translateX(-20px);
+transition: opacity 0.6s, transform 0.6s;
+}
+
+.timeline-item.visible {
+opacity: 1;
+transform: translateX(0);
+}
+
+.timeline-item::before {
+content: ‘’;
+position: absolute;
+left: -36px;
+top: 10px;
+width: 8px; height: 8px;
+border-radius: 50%;
+background: var(–gold);
+box-shadow: 0 0 12px rgba(201,168,76,0.5);
+}
+
+.timeline-period {
+font-size: 10px;
+letter-spacing: 0.2em;
+color: var(–gold);
+margin-bottom: 4px;
+}
+
+.timeline-role {
+font-family: ‘Cormorant Garant’, serif;
+font-size: 26px;
+font-weight: 400;
+margin-bottom: 2px;
+}
+
+.timeline-company {
+font-size: 11px;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(–text-muted);
+margin-bottom: 14px;
+}
+
+.timeline-points {
+list-style: none;
+display: flex;
+flex-direction: column;
+gap: 6px;
+}
+
+.timeline-points li {
+padding-left: 16px;
+position: relative;
+font-size: 13.5px;
+color: rgba(232,228,220,0.7);
+line-height: 1.65;
+}
+
+.timeline-points li::before {
+content: ‘—’;
+position: absolute;
+left: 0;
+color: var(–gold);
+opacity: 0.5;
+font-size: 11px;
+}
+
+/* ── EXPERTISE ── */
+.expertise-section {
+background: var(–surface);
+}
+
+.expertise-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 2px;
+}
+
+.expertise-card {
+background: var(–surface2);
+padding: 48px 40px;
+border: 1px solid transparent;
+transition: border-color 0.4s, background 0.4s;
+position: relative;
+overflow: hidden;
+}
+
+.expertise-card::before {
+content: ‘’;
+position: absolute;
+top: 0; left: 0; right: 0;
+height: 2px;
+background: linear-gradient(to right, transparent, var(–gold), transparent);
+transform: scaleX(0);
+transition: transform 0.4s;
+}
+
+.expertise-card:hover { border-color: var(–border); background: #1a1a26; }
+.expertise-card:hover::before { transform: scaleX(1); }
+
+.expertise-num {
+font-family: ‘Cormorant Garant’, serif;
+font-size: 48px;
+font-weight: 300;
+color: var(–gold);
+opacity: 0.25;
+line-height: 1;
+margin-bottom: 20px;
+}
+
+.expertise-title {
+font-family: ‘Cormorant Garant’, serif;
+font-size: 24px;
+font-weight: 400;
+margin-bottom: 12px;
+}
+
+.expertise-desc {
+font-size: 13px;
+color: var(–text-muted);
+line-height: 1.7;
+}
+
+/* ── SPEAKING ── */
+.speaking-section { background: var(–ink); }
+
+.speaking-topics {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 24px;
+}
+
+.topic-item {
+border: 1px solid var(–border);
+padding: 32px 36px;
+position: relative;
+transition: background 0.3s;
+}
+
+.topic-item:hover { background: var(–gold-dim); }
+
+.topic-icon {
+font-size: 28px;
+margin-bottom: 16px;
+}
+
+.topic-title {
+font-family: ‘Cormorant Garant’, serif;
+font-size: 22px;
+font-weight: 400;
+margin-bottom: 8px;
+}
+
+.topic-desc {
+font-size: 13px;
+color: var(–text-muted);
+line-height: 1.65;
+}
+
+/* ── SUSTAINABILITY ── */
+.sustainability-section {
+background: linear-gradient(135deg, #0A0A0F 0%, #0C1008 50%, #0A0A0F 100%);
+border-top: 1px solid rgba(201,168,76,0.1);
+border-bottom: 1px solid rgba(201,168,76,0.1);
+}
+
+.sustainability-inner {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 80px;
+align-items: center;
+}
+
+.sustain-highlight {
+font-family: ‘Cormorant Garant’, serif;
+font-size: clamp(32px, 4vw, 52px);
+font-weight: 300;
+line-height: 1.2;
+margin-bottom: 28px;
+}
+
+.sustain-highlight em { font-style: italic; color: var(–gold); }
+
+.sustain-stats {
+display: flex;
+flex-direction: column;
+gap: 32px;
+}
+
+.sustain-stat {
+display: flex;
+gap: 24px;
+align-items: flex-start;
+padding-bottom: 32px;
+border-bottom: 1px solid var(–border);
+}
+
+.sustain-stat:last-child { border-bottom: none; padding-bottom: 0; }
+
+.sustain-num {
+font-family: ‘Cormorant Garant’, serif;
+font-size: 44px;
+font-weight: 300;
+color: var(–gold);
+line-height: 1;
+min-width: 120px;
+}
+
+.sustain-label { font-size: 13px; color: var(–text-muted); line-height: 1.6; }
+.sustain-label strong { display: block; color: var(–text); font-weight: 400; margin-bottom: 4px; font-size: 15px; }
+
+/* ── CONTACT ── */
+.contact-section {
+background: var(–surface);
+text-align: center;
+padding: 120px 60px;
+}
+
+.contact-section .section-label { justify-content: center; }
+.contact-section .section-label::after { display: none; }
+
+.contact-tagline {
+font-family: ‘Cormorant Garant’, serif;
+font-size: clamp(36px, 5vw, 64px);
+font-weight: 300;
+line-height: 1.15;
+max-width: 700px;
+margin: 0 auto 60px;
+}
+
+.contact-tagline em { font-style: italic; color: var(–gold); }
+
+.contact-cards {
+display: flex;
+justify-content: center;
+gap: 24px;
+flex-wrap: wrap;
+margin-bottom: 60px;
+}
+
+.contact-card {
+border: 1px solid var(–border);
+padding: 28px 40px;
+text-decoration: none;
+color: var(–text);
+transition: background 0.3s, border-color 0.3s;
+min-width: 200px;
+}
+
+.contact-card:hover {
+background: var(–gold-dim);
+border-color: var(–gold);
+}
+
+.contact-card-label {
+font-size: 9px;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 8px;
+}
+
+.contact-card-val {
+font-family: ‘Cormorant Garant’, serif;
+font-size: 18px;
+}
+
+.footer {
+text-align: center;
+padding: 32px;
+font-size: 11px;
+letter-spacing: 0.15em;
+color: var(–text-muted);
+border-top: 1px solid var(–border);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(30px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+
+@keyframes scrollPulse {
+0% { transform: scaleY(0); transform-origin: top; }
+50% { transform: scaleY(1); transform-origin: top; }
+51% { transform: scaleY(1); transform-origin: bottom; }
+100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+nav { padding: 20px 24px; }
+.nav-links { display: none; }
+section { padding: 70px 24px; }
+.hero { padding: 0 24px 70px; }
+.hero-stats { right: 24px; }
+.about, .sustainability-inner { grid-template-columns: 1fr; gap: 48px; }
+.expertise-grid, .speaking-topics { grid-template-columns: 1fr; }
+.contact-section { padding: 80px 24px; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav>
+<div class="nav-logo">Tony Tse</div>
+<ul class="nav-links">
+<li><a href="#about">Profile</a></li>
+<li><a href="#career">Career</a></li>
+<li><a href="#expertise">Expertise</a></li>
+<li><a href="#speaking">Speaking</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<!-- HERO -->
+
+<div class="hero">
+<div class="hero-bg"></div>
+<div class="hero-line"></div>
+
+<p class="hero-tag">Global Business Leader · ESG Pioneer · Conference Speaker</p>
+
+<h1 class="hero-name">Tony<br><em>Tse</em></h1>
+
+<div class="hero-descriptor">
+<span>Asia Pacific</span>
+<div class="divider"></div>
+<span>International Markets</span>
+<div class="divider"></div>
+<span>Sustainable Futures</span>
+</div>
+
+<div class="hero-stats">
+<div class="stat">
+<div class="stat-num">35+</div>
+<div class="stat-label">Years of Leadership</div>
+</div>
+<div class="stat">
+<div class="stat-num">15+</div>
+<div class="stat-label">Markets Served</div>
+</div>
+<div class="stat">
+<div class="stat-num">10B+</div>
+<div class="stat-label">Bottles Recovered</div>
+</div>
+</div>
+
+<div class="scroll-cue">
+<span>Scroll</span>
+<div class="scroll-line"></div>
+</div>
+</div>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+<div class="about-left">
+<p class="section-label">Profile</p>
+<h2 class="section-title">A career<br>built across<br><em>continents</em></h2>
+</div>
+<div>
+<p class="about-bio">
+From managing retail banking on Vancouver's Chinatown corridors to pioneering consumer brands across 15 Asia-Pacific markets — Tony Tse has spent four decades at the intersection of <em>commerce, culture, and innovation</em>.
+</p>
+<p style="font-size:14px; color:var(--text-muted); line-height:1.8; margin-bottom:16px;">
+A graduate of UBC's Sauder School of Business (Dean's Honour List), Tony has held senior leadership roles at Royal Bank of Canada, Faber-Castell, Philips, WestPoint Stevens, DuPont/Invista, and Advansa. His career has been defined by a rare ability to bridge Western brands with Asian markets — building supply chains, launching flagship stores, and commercialising breakthrough technologies across China, Japan, Australia, and beyond.
+</p>
+<p style="font-size:14px; color:var(--text-muted); line-height:1.8;">
+Today, Tony is the Founder and CEO of Major 7 Global Sustainability Co. Ltd., partnering with Plastic Bank Canada on a mission to recover ocean-bound plastic — with 10 billion bottles collected worldwide.
+</p>
+<div class="about-details">
+<div class="detail-item">
+<div class="detail-key">Education</div>
+<div class="detail-val">B.Commerce, UBC Vancouver<br><span style="font-size:12px;color:var(--text-muted)">Dean's Honour List, 1987</span></div>
+</div>
+<div class="detail-item">
+<div class="detail-key">Languages</div>
+<div class="detail-val">English · Cantonese<br>Mandarin (Putonghua)</div>
+</div>
+<div class="detail-item">
+<div class="detail-key">Passports</div>
+<div class="detail-val">Canada · Hong Kong</div>
+</div>
+<div class="detail-item">
+<div class="detail-key">Speciality</div>
+<div class="detail-val">International Markets<br>Asia-Pacific Strategy</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CAREER -->
+
+<section class="timeline-section" id="career">
+<p class="section-label">Career</p>
+<h2 class="section-title">A legacy of<br><em>firsts</em></h2>
+
+<div class="timeline">
+
+```
+<div class="timeline-item">
+<div class="timeline-period">2022 — Present</div>
+<div class="timeline-role">Founder & CEO</div>
+<div class="timeline-company">Major 7 Global Sustainability Co. Ltd.</div>
+<ul class="timeline-points">
+<li>Major partner with Plastic Bank Canada — 10 billion PET bottles recovered worldwide</li>
+<li>150 million metric tons of plastic waste recycled and diverted from oceans and rivers</li>
+<li>Partner brands include Adidas, Coca-Cola, Marks & Spencer, Henkel, and Advansa</li>
+<li>Conference speaker in English and Mandarin on ESG certification, biodiversity, and T2T recycling</li>
+</ul>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-period">2006 — 2023</div>
+<div class="timeline-role">Director, Asia Pacific & China</div>
+<div class="timeline-company">DuPontSA (Turkey) / Advansa</div>
+<ul class="timeline-points">
+<li>Expanded brand presence across China's top home textiles companies: Luolai, Mercury, Mendale, Fuanna and more</li>
+<li>Launched DuPont's "Suprelle" online flagship store — awarded Top-5 Best Customer Experience on Tmall, JD.com and VIP.com (2022)</li>
+</ul>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-period">2002 — 2006</div>
+<div class="timeline-role">Segment Manager, Polyester Home Textiles — Asia Pacific & China</div>
+<div class="timeline-company">DuPont / Invista</div>
+<ul class="timeline-points">
+<li>Pioneered the first Western commercialised Far-Infrared Radiation warming technology (now "Celiant")</li>
+<li>Developed nano-technology functional products: PCM temperature management, anti-dustmite, anti-bacterial finishes, and electronic sleep-monitor pillows</li>
+<li>Consolidated DuPont technology under consumer brands Suprelle, Ultrelle, and Climarelle</li>
+</ul>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-period">1998 — 2002</div>
+<div class="timeline-role">Managing Director, Asia Pacific</div>
+<div class="timeline-company">WestPoint Stevens Home</div>
+<ul class="timeline-points">
+<li>Opened the first USA-branded retail stores in China (2001) — Martex brand, in partnership with Ningbo Veken</li>
+<li>Established direct supply chains to Asia Walmart, Sam's Club, Costco, and Australian retailers Kmart and Target</li>
+<li>Scaled Australian retail network for Vellux blankets from 5 to 1,000+ stores in four years</li>
+<li>Built regional distribution across China, HK/Taiwan, Japan, South Korea, ANZ, Indonesia, Thailand, Malaysia, and India</li>
+</ul>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-period">1993 — 1995</div>
+<div class="timeline-role">Marketing Manager — HK & China</div>
+<div class="timeline-company">Philips Holland (Consumer Electronics)</div>
+<ul class="timeline-points">
+<li>Invented and launched the first multisystem videotapes and first professional digital audio tapes in HK/China</li>
+<li>Introduced global top pro-audio brands to China: Sennheiser, Eagle Cables, Tascam, Mackie</li>
+</ul>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-period">1989 — 1993</div>
+<div class="timeline-role">Marketing & Sales Manager</div>
+<div class="timeline-company">Faber-Castell (Germany)</div>
+<ul class="timeline-points">
+<li>Managed import/export of professional architectural drafting equipment across HK channels</li>
+<li>Fast-moving consumer channels: stationery, supermarkets, convenience stores</li>
+</ul>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-period">1984 — 1989</div>
+<div class="timeline-role">Retail Bank Manager</div>
+<div class="timeline-company">Royal Bank of Canada — Chinatown, Vancouver</div>
+<ul class="timeline-points">
+<li>Managed retail business loans, research & analysis, and private wealth — full-time before and after completing business school</li>
+<li>Served the Cantonese-speaking business community in Vancouver's Chinatown</li>
+</ul>
+</div>
+```
+
+</div>
+</section>
+
+<!-- EXPERTISE -->
+
+<section class="expertise-section" id="expertise">
+<p class="section-label">Expertise</p>
+<h2 class="section-title">Core<br><em>capabilities</em></h2>
+<div class="expertise-grid">
+<div class="expertise-card">
+<div class="expertise-num">01</div>
+<div class="expertise-title">Asia-Pacific Market Entry</div>
+<div class="expertise-desc">Deep knowledge of distribution networks, retail channels, and brand establishment across China, HK, Japan, South Korea, ANZ, and SE Asia.</div>
+</div>
+<div class="expertise-card">
+<div class="expertise-num">02</div>
+<div class="expertise-title">Supply Chain Development</div>
+<div class="expertise-desc">From factory floor to global retail — building direct supply chains for multinational brands including Walmart, Costco, and major retailers across 15+ markets.</div>
+</div>
+<div class="expertise-card">
+<div class="expertise-num">03</div>
+<div class="expertise-title">Brand Commercialisation</div>
+<div class="expertise-desc">Taking Western technology and consumer brands into Asia — from DuPont's functional textiles to WestPoint's home goods and Faber-Castell's professional equipment.</div>
+</div>
+<div class="expertise-card">
+<div class="expertise-num">04</div>
+<div class="expertise-title">ESG & Sustainability Strategy</div>
+<div class="expertise-desc">Founder-level experience in plastic waste recovery, UN SDG alignment, biodiversity protection, and ESG certification across Asian supply chains.</div>
+</div>
+<div class="expertise-card">
+<div class="expertise-num">05</div>
+<div class="expertise-title">Technology Innovation</div>
+<div class="expertise-desc">Track record of pioneering firsts — from multisystem videotapes to nano-functional textiles and Far-Infrared warming technology commercialised for Asian markets.</div>
+</div>
+<div class="expertise-card">
+<div class="expertise-num">06</div>
+<div class="expertise-title">Cross-Cultural Leadership</div>
+<div class="expertise-desc">Trilingual (English, Cantonese, Mandarin), bi-national, and educated across two continents — uniquely positioned to bridge Western strategy with Eastern execution.</div>
+</div>
+</div>
+</section>
+
+<!-- SUSTAINABILITY -->
+
+<section class="sustainability-section">
+<div class="sustainability-inner">
+<div>
+<p class="section-label">Impact</p>
+<h2 class="sustain-highlight">Turning waste<br>into <em>purpose</em> —<br>at global scale</h2>
+<p style="font-size:14px; color:var(--text-muted); line-height:1.8; margin-bottom:28px;">
+As Founder of Major 7 Global Sustainability, Tony leads a mission-driven enterprise partnered with Plastic Bank Canada — uniting global brands and local communities to intercept plastic waste before it reaches the world's oceans.
+</p>
+<p style="font-size:13px; color:var(--text-muted); line-height:1.8;">
+Partner brands include Adidas · Coca-Cola · Marks & Spencer · Henkel · Advansa
+</p>
+</div>
+<div class="sustain-stats">
+<div class="sustain-stat">
+<div class="sustain-num">10B+</div>
+<div class="sustain-label">
+<strong>Bottles Recovered</strong>
+PET plastic bottles collected worldwide, diverted from rivers and oceans
+</div>
+</div>
+<div class="sustain-stat">
+<div class="sustain-num">150M</div>
+<div class="sustain-label">
+<strong>Metric Tons Recycled</strong>
+Plastic waste recycled and re-entered into responsible supply chains
+</div>
+</div>
+<div class="sustain-stat">
+<div class="sustain-num">UN SDG</div>
+<div class="sustain-label">
+<strong>Aligned Operations</strong>
+Regional China supply chain cooperation aligned to United Nations Sustainable Development Goals
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SPEAKING -->
+
+<section class="speaking-section" id="speaking">
+<p class="section-label">Speaking</p>
+<h2 class="section-title">Conference<br><em>topics</em></h2>
+<div class="speaking-topics">
+<div class="topic-item">
+<div class="topic-icon">♻️</div>
+<div class="topic-title">Plastic Waste Recovery at Scale</div>
+<div class="topic-desc">From collection ecosystems to global brand partnerships — practical frameworks for intercepting ocean-bound plastic in emerging markets.</div>
+</div>
+<div class="topic-item">
+<div class="topic-icon">🌿</div>
+<div class="topic-title">ESG Certification in Asian Supply Chains</div>
+<div class="topic-desc">Navigating ESG compliance, verification, and brand alignment across China and the broader Asia-Pacific supply chain landscape.</div>
+</div>
+<div class="topic-item">
+<div class="topic-icon">🧵</div>
+<div class="topic-title">Sustainable Textiles & T2T Recycling</div>
+<div class="topic-desc">The frontier of textile-to-textile recycling technologies and their commercial application across global apparel and home textile industries.</div>
+</div>
+<div class="topic-item">
+<div class="topic-icon">🌏</div>
+<div class="topic-title">Biodiversity & Canada's Eco Initiatives</div>
+<div class="topic-desc">Canadian leadership in environmental protection and how cross-border cooperation accelerates global biodiversity goals.</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact-section" id="contact">
+<p class="section-label">Contact</p>
+<h2 class="contact-tagline">Open to<br><em>conversation</em></h2>
+<p style="font-size:14px; color:var(--text-muted); max-width:480px; margin:0 auto 48px; line-height:1.8;">
+Whether you're exploring a business opportunity, seeking a keynote speaker, or looking to collaborate on sustainability — Tony welcomes the dialogue.
+</p>
+<div class="contact-cards">
+<a class="contact-card" href="mailto:tonytse666@gmail.com">
+<div class="contact-card-label">Personal Email</div>
+<div class="contact-card-val">tonytse666@gmail.com</div>
+</a>
+<a class="contact-card" href="mailto:MAJOR7CONSULT@qq.com">
+<div class="contact-card-label">Business Email</div>
+<div class="contact-card-val">MAJOR7CONSULT@qq.com</div>
+</a>
+<a class="contact-card" href="tel:+8613524668880">
+<div class="contact-card-label">Phone / WeChat</div>
+<div class="contact-card-val">+86 135 2466 8880</div>
+</a>
+</div>
+</section>
+
+<footer class="footer">
+Tony Tse &nbsp;·&nbsp; Global Business Leader &nbsp;·&nbsp; ESG Pioneer &nbsp;·&nbsp; Conference Speaker
+</footer>
+
+<script>
+// Scroll reveal for timeline items
+const observer = new IntersectionObserver((entries) => {
+entries.forEach((entry, i) => {
+if (entry.isIntersecting) {
+setTimeout(() => entry.target.classList.add('visible'), i * 80);
+}
+});
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.timeline-item').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
