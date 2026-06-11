@@ -3,334 +3,117 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>郭璇儿 — 国际商业领袖</title>
+<title>郭璇儿 Tony Tse — 国际商业领袖</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Noto+Serif+SC:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --gold: #C9A84C;
-  --gold-bright: #F0C84E;
-  --gold-dim: rgba(201,168,76,0.12);
-  --ink: #050508;
-  --surface: #0D0D16;
-  --surface2: #13131E;
-  --text: #EEE9DF;
-  --text-muted: #8A8578;
-  --border: rgba(201,168,76,0.18);
-  --teal: #1DB8AA;
-  --teal-dim: rgba(29,184,170,0.1);
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--ink);
-  color: var(--text);
-  font-family: 'Noto Sans SC', sans-serif;
-  font-weight: 300;
-  font-size: 15px;
-  line-height: 1.9;
-  overflow-x: hidden;
-}
-body::before {
-  content: '';
-  position: fixed; inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none; z-index: 0; opacity: 0.5;
-}
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 22px 60px;
-  background: linear-gradient(to bottom, rgba(5,5,8,0.97), transparent);
-  backdrop-filter: blur(6px);
-}
-.nav-logo {
-  font-family: 'Noto Serif SC', serif;
-  font-size: 22px; font-weight: 700;
-  letter-spacing: 0.1em; color: var(--gold);
-}
-.nav-links { display: flex; gap: 36px; list-style: none; }
-.nav-links a {
-  color: var(--text-muted); text-decoration: none;
-  font-size: 13px; letter-spacing: 0.08em;
-  transition: color 0.3s;
-}
-.nav-links a:hover { color: var(--gold); }
-.hero {
-  height: 100vh; min-height: 700px;
-  position: relative; overflow: hidden;
-  display: flex; flex-direction: column; justify-content: flex-end;
-  padding: 0 60px 90px;
-}
-.hero-ocean {
-  position: absolute; inset: 0;
-  background-size: cover; background-position: center;
-  filter: brightness(0.35) saturate(1.2);
-  transform: scale(1.05);
-  animation: slowZoom 20s ease-in-out infinite alternate;
-}
-@keyframes slowZoom { from { transform: scale(1.05); } to { transform: scale(1.12); } }
-.hero-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(5,5,8,0.2) 0%, rgba(5,5,8,0.1) 30%, rgba(5,5,8,0.6) 70%, rgba(5,5,8,0.97) 100%);
-}
-.hero-content { position: relative; z-index: 1; }
-.hero-eyebrow {
-  font-size: 12px; letter-spacing: 0.2em;
-  color: var(--teal); margin-bottom: 20px;
-  opacity: 0; animation: fadeUp 0.8s 0.3s forwards;
-  display: flex; align-items: center; gap: 16px;
-}
-.hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--teal); flex-shrink: 0; }
-.hero-name {
-  font-family: 'Noto Serif SC', serif;
-  font-size: clamp(68px, 10vw, 130px);
-  font-weight: 700; line-height: 1.05;
-  letter-spacing: 0.06em;
-  opacity: 0; animation: fadeUp 1s 0.5s forwards;
-}
-.hero-name em {
-  font-style: normal; color: var(--gold);
-  display: block; font-weight: 300;
-  font-size: 0.52em; letter-spacing: 0.2em; margin-top: 8px;
-}
-.hero-tagline {
-  margin-top: 28px; font-size: 12px; letter-spacing: 0.15em;
-  color: var(--text-muted);
-  opacity: 0; animation: fadeUp 0.9s 0.7s forwards;
-  display: flex; gap: 20px; flex-wrap: wrap;
-}
-.hero-tagline span { display: flex; align-items: center; gap: 10px; }
-.hero-tagline span::before { content: '◆'; font-size: 6px; color: var(--gold); }
-.hero-stats {
-  position: absolute; right: 60px; bottom: 90px; z-index: 1;
-  display: flex; flex-direction: column; gap: 28px; align-items: flex-end;
-  opacity: 0; animation: fadeIn 1.2s 1.1s forwards;
-}
-.stat { text-align: right; }
-.stat-num {
-  font-family: 'Noto Serif SC', serif;
-  font-size: 50px; font-weight: 700; line-height: 1;
-  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-}
-.stat-label { font-size: 11px; letter-spacing: 0.1em; color: var(--text-muted); }
-.hero-pulse {
-  position: absolute; bottom: 0; left: 0; right: 0; height: 3px; z-index: 2;
-  background: linear-gradient(to right, transparent, var(--teal), var(--gold), var(--teal), transparent);
-  animation: pulse 3s ease-in-out infinite;
-}
-@keyframes pulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
-section { position: relative; z-index: 1; padding: 110px 60px; }
-.section-label {
-  font-size: 11px; letter-spacing: 0.25em;
-  color: var(--teal); margin-bottom: 52px;
-  display: flex; align-items: center; gap: 16px;
-}
-.section-label::before { content: ''; width: 24px; height: 2px; background: var(--teal); }
-.section-title {
-  font-family: 'Noto Serif SC', serif;
-  font-size: clamp(34px, 4vw, 58px);
-  font-weight: 700; line-height: 1.25;
-  margin-bottom: 56px; letter-spacing: 0.04em;
-}
-.section-title em { font-style: normal; color: var(--gold); }
-.about {
-  background: var(--surface);
-  display: grid; grid-template-columns: 1fr 1.5fr;
-  gap: 80px; align-items: start;
-}
-.about-photo-wrap {
-  position: relative; aspect-ratio: 3/4;
-  overflow: hidden; max-height: 500px;
-}
-.about-photo-wrap::before {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(to bottom, transparent 60%, var(--surface) 100%); z-index: 1;
-}
-.about-photo-wrap::after {
-  content: ''; position: absolute;
-  top: -2px; left: -2px; right: -2px; bottom: -2px;
-  border: 1px solid var(--gold); opacity: 0.2; z-index: 2;
-}
-.about-photo { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: sepia(15%) contrast(1.05); }
-.about-right { padding-top: 8px; }
-.about-bio {
-  font-family: 'Noto Serif SC', serif;
-  font-size: 19px; font-weight: 400; line-height: 1.85;
-  margin-bottom: 28px; color: var(--text);
-}
-.about-bio em { font-style: normal; color: var(--gold); }
-.about-body { font-size: 14px; color: var(--text-muted); line-height: 2; margin-bottom: 16px; }
-.about-details {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 24px; margin-top: 40px;
-  padding-top: 36px; border-top: 1px solid var(--border);
-}
-.detail-key { font-size: 10px; letter-spacing: 0.2em; color: var(--teal); margin-bottom: 5px; }
-.detail-val { font-size: 14px; color: var(--text); }
-.music-quote {
-  margin-top: 40px; padding: 28px 32px;
-  border-left: 3px solid var(--gold);
-  background: var(--gold-dim); position: relative;
-}
-.music-quote::before {
-  content: '♩'; position: absolute;
-  top: -14px; left: 20px; font-size: 28px;
-  color: var(--gold); opacity: 0.6;
-}
-.music-quote p {
-  font-family: 'Noto Serif SC', serif;
-  font-size: 15px; line-height: 1.9; color: var(--text);
-}
-.music-quote cite {
-  display: block; margin-top: 12px;
-  font-size: 11px; letter-spacing: 0.15em; color: var(--gold); font-style: normal;
-}
-.timeline-section { background: var(--ink); }
-.timeline { position: relative; padding-left: 36px; max-width: 860px; }
-.timeline::before {
-  content: ''; position: absolute;
-  left: 0; top: 6px; bottom: 0; width: 1px;
-  background: linear-gradient(to bottom, var(--teal), var(--gold), transparent); opacity: 0.3;
-}
-.timeline-item {
-  position: relative; margin-bottom: 60px;
-  opacity: 0; transform: translateX(-24px);
-  transition: opacity 0.6s, transform 0.6s;
-}
-.timeline-item.visible { opacity: 1; transform: translateX(0); }
-.timeline-item::before {
-  content: ''; position: absolute;
-  left: -40px; top: 10px; width: 9px; height: 9px;
-  border-radius: 50%; background: var(--gold);
-  box-shadow: 0 0 16px rgba(201,168,76,0.6);
-}
-.timeline-period { font-size: 11px; letter-spacing: 0.15em; color: var(--teal); margin-bottom: 4px; }
-.timeline-role {
-  font-family: 'Noto Serif SC', serif;
-  font-size: 22px; font-weight: 700; margin-bottom: 3px; line-height: 1.3;
-}
-.timeline-company { font-size: 12px; color: var(--text-muted); margin-bottom: 16px; }
-.timeline-points { list-style: none; }
-.timeline-points li {
-  padding-left: 18px; position: relative;
-  font-size: 13.5px; color: rgba(238,233,223,0.68);
-  line-height: 1.85; margin-bottom: 6px;
-}
-.timeline-points li::before { content: '—'; position: absolute; left: 0; color: var(--gold); opacity: 0.5; }
-.expertise-section { background: var(--surface); }
-.expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-.expertise-card {
-  background: var(--surface2); padding: 44px 36px;
-  border: 1px solid transparent; transition: all 0.4s;
-  position: relative; overflow: hidden;
-}
-.expertise-card::after {
-  content: ''; position: absolute;
-  top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(to right, var(--teal), var(--gold));
-  transform: scaleX(0); transition: transform 0.4s;
-}
-.expertise-card:hover { border-color: var(--border); background: #181826; }
-.expertise-card:hover::after { transform: scaleX(1); }
-.expertise-num {
-  font-family: 'Noto Serif SC', serif;
-  font-size: 52px; font-weight: 700;
-  color: var(--gold); opacity: 0.18; line-height: 1; margin-bottom: 20px;
-}
-.expertise-title { font-family: 'Noto Serif SC', serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
-.expertise-desc { font-size: 13px; color: var(--text-muted); line-height: 1.9; }
-.sustainability-section {
-  background: linear-gradient(145deg, #04050A 0%, #061210 60%, #04050A 100%);
-  border-top: 1px solid rgba(29,184,170,0.15);
-  border-bottom: 1px solid rgba(29,184,170,0.15);
-}
-.sustainability-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-.sustain-highlight {
-  font-family: 'Noto Serif SC', serif;
-  font-size: clamp(28px, 3.5vw, 46px);
-  font-weight: 700; line-height: 1.35;
-  margin-bottom: 28px; letter-spacing: 0.03em;
-}
-.sustain-highlight em { font-style: normal; color: var(--gold); }
-.sustain-body { font-size: 14px; color: var(--text-muted); line-height: 2; margin-bottom: 20px; }
-.ecovadis-badge {
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 10px 20px;
-  border: 1px solid rgba(201,168,76,0.3);
-  background: var(--gold-dim);
-  font-size: 11px; letter-spacing: 0.12em;
-  color: var(--gold); margin-bottom: 28px;
-}
-.sustain-stats { display: flex; flex-direction: column; gap: 0; }
-.sustain-stat {
-  display: flex; gap: 28px; align-items: flex-start;
-  padding: 28px 0; border-bottom: 1px solid var(--border);
-}
-.sustain-stat:last-child { border-bottom: none; }
-.sustain-num {
-  font-family: 'Noto Serif SC', serif;
-  font-size: 44px; font-weight: 700;
-  background: linear-gradient(135deg, var(--teal), var(--gold));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  line-height: 1; min-width: 130px;
-}
-.sustain-label { font-size: 13px; color: var(--text-muted); line-height: 1.8; }
-.sustain-label strong { display: block; color: var(--text); font-weight: 500; margin-bottom: 4px; }
-.speaking-section { background: var(--ink); }
-.speaking-topics { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.topic-item {
-  border: 1px solid var(--border); padding: 36px;
-  transition: all 0.3s; position: relative; overflow: hidden;
-}
-.topic-item::before {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(135deg, var(--teal-dim), transparent);
-  opacity: 0; transition: opacity 0.3s;
-}
-.topic-item:hover { border-color: rgba(29,184,170,0.4); }
-.topic-item:hover::before { opacity: 1; }
-.topic-icon { font-size: 30px; margin-bottom: 18px; position: relative; z-index: 1; }
-.topic-title { font-family: 'Noto Serif SC', serif; font-size: 20px; font-weight: 700; margin-bottom: 10px; position: relative; z-index: 1; }
-.topic-desc { font-size: 13px; color: var(--text-muted); line-height: 1.9; position: relative; z-index: 1; }
-.contact-section { background: var(--surface); text-align: center; padding: 130px 60px; }
-.contact-tagline {
-  font-family: 'Noto Serif SC', serif;
-  font-size: clamp(32px, 4vw, 56px);
-  font-weight: 700; line-height: 1.3;
-  max-width: 720px; margin: 0 auto 28px; letter-spacing: 0.04em;
-}
-.contact-tagline em { font-style: normal; color: var(--gold); }
-.contact-sub { font-size: 14px; color: var(--text-muted); max-width: 500px; margin: 0 auto 60px; line-height: 2; }
-.contact-cards { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-.contact-card {
-  border: 1px solid var(--border); padding: 28px 36px;
-  text-decoration: none; color: var(--text);
-  transition: all 0.3s; min-width: 210px;
-}
-.contact-card:hover { background: var(--gold-dim); border-color: var(--gold); }
-.contact-card-label { font-size: 10px; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 8px; }
-.contact-card-val { font-family: 'Noto Serif SC', serif; font-size: 16px; }
-.footer {
-  text-align: center; padding: 32px;
-  font-size: 12px; letter-spacing: 0.1em;
-  color: var(--text-muted); border-top: 1px solid var(--border);
-}
-@keyframes fadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@media (max-width: 900px) {
-  nav { padding: 20px 24px; }
-  .nav-links { display: none; }
-  section { padding: 72px 24px; }
-  .hero { padding: 0 24px 72px; }
-  .hero-stats { right: 24px; }
-  .about { grid-template-columns: 1fr; gap: 40px; }
-  .about-photo-wrap { max-height: 340px; aspect-ratio: 16/9; }
-  .expertise-grid, .speaking-topics { grid-template-columns: 1fr; }
-  .sustainability-inner { grid-template-columns: 1fr; gap: 48px; }
-  .contact-section { padding: 80px 24px; }
-}
+:root{--gold:#C9A84C;--gold-bright:#F0C84E;--gold-dim:rgba(201,168,76,0.12);--ink:#050508;--surface:#0D0D16;--surface2:#13131E;--text:#EEE9DF;--text-muted:#8A8578;--border:rgba(201,168,76,0.18);--teal:#1DB8AA;--teal-dim:rgba(29,184,170,0.1);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--ink);color:var(--text);font-family:'Noto Sans SC',sans-serif;font-weight:300;font-size:15px;line-height:1.9;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.5;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:22px 60px;background:linear-gradient(to bottom,rgba(5,5,8,0.97),transparent);backdrop-filter:blur(6px);}
+.nav-logo{font-family:'Noto Serif SC',serif;font-size:20px;font-weight:700;letter-spacing:0.1em;color:var(--gold);}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{color:var(--text-muted);text-decoration:none;font-size:13px;letter-spacing:0.08em;transition:color 0.3s;}
+.nav-links a:hover{color:var(--gold);}
+.lang-switch{font-size:11px;letter-spacing:0.15em;color:var(--teal);text-decoration:none;border:1px solid rgba(29,184,170,0.3);padding:6px 14px;transition:all 0.3s;}
+.lang-switch:hover{background:var(--teal-dim);border-color:var(--teal);}
+.hero{height:100vh;min-height:700px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:0 60px 90px;}
+.hero-ocean{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(0.35) saturate(1.2);transform:scale(1.05);animation:slowZoom 20s ease-in-out infinite alternate;}
+@keyframes slowZoom{from{transform:scale(1.05);}to{transform:scale(1.12);}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(5,5,8,0.2) 0%,rgba(5,5,8,0.1) 30%,rgba(5,5,8,0.6) 70%,rgba(5,5,8,0.97) 100%);}
+.hero-content{position:relative;z-index:1;}
+.hero-eyebrow{font-size:12px;letter-spacing:0.2em;color:var(--teal);margin-bottom:20px;opacity:0;animation:fadeUp 0.8s 0.3s forwards;display:flex;align-items:center;gap:16px;}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--teal);flex-shrink:0;}
+.hero-name{font-family:'Noto Serif SC',serif;font-size:clamp(64px,9vw,124px);font-weight:700;line-height:1.05;letter-spacing:0.06em;opacity:0;animation:fadeUp 1s 0.5s forwards;}
+.hero-sub{margin-top:14px;font-family:'Noto Serif SC',serif;font-size:clamp(16px,1.8vw,22px);color:var(--gold);opacity:0;letter-spacing:0.15em;font-weight:300;animation:fadeUp 0.9s 0.65s forwards;}
+.hero-tagline{margin-top:24px;font-size:12px;letter-spacing:0.15em;color:var(--text-muted);opacity:0;animation:fadeUp 0.9s 0.8s forwards;display:flex;gap:20px;flex-wrap:wrap;}
+.hero-tagline span{display:flex;align-items:center;gap:10px;}
+.hero-tagline span::before{content:'◆';font-size:6px;color:var(--gold);}
+.hero-stats{position:absolute;right:60px;bottom:90px;z-index:1;display:flex;flex-direction:column;gap:28px;align-items:flex-end;opacity:0;animation:fadeIn 1.2s 1.1s forwards;}
+.stat{text-align:right;}
+.stat-num{font-family:'Noto Serif SC',serif;font-size:50px;font-weight:700;line-height:1;background:linear-gradient(135deg,var(--gold-bright),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.stat-label{font-size:11px;letter-spacing:0.1em;color:var(--text-muted);}
+.hero-pulse{position:absolute;bottom:0;left:0;right:0;height:3px;z-index:2;background:linear-gradient(to right,transparent,var(--teal),var(--gold),var(--teal),transparent);animation:pulse 3s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:0.4;}50%{opacity:1;}}
+section{position:relative;z-index:1;padding:110px 60px;}
+.section-label{font-size:11px;letter-spacing:0.25em;color:var(--teal);margin-bottom:52px;display:flex;align-items:center;gap:16px;}
+.section-label::before{content:'';width:24px;height:2px;background:var(--teal);}
+.section-title{font-family:'Noto Serif SC',serif;font-size:clamp(32px,4vw,56px);font-weight:700;line-height:1.25;margin-bottom:56px;letter-spacing:0.04em;}
+.section-title em{font-style:normal;color:var(--gold);}
+.about{background:var(--surface);display:grid;grid-template-columns:1fr 1.5fr;gap:80px;align-items:start;}
+.about-photo-wrap{position:relative;aspect-ratio:3/4;overflow:hidden;max-height:500px;}
+.about-photo-wrap::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,var(--surface) 100%);z-index:1;}
+.about-photo-wrap::after{content:'';position:absolute;top:-2px;left:-2px;right:-2px;bottom:-2px;border:1px solid var(--gold);opacity:0.2;z-index:2;}
+.about-photo{width:100%;height:100%;object-fit:cover;object-position:center top;filter:sepia(15%) contrast(1.05);}
+.about-right{padding-top:8px;}
+.about-bio{font-family:'Noto Serif SC',serif;font-size:19px;font-weight:400;line-height:1.85;margin-bottom:28px;color:var(--text);}
+.about-bio em{font-style:normal;color:var(--gold);}
+.about-body{font-size:14px;color:var(--text-muted);line-height:2;margin-bottom:16px;}
+.about-details{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px;padding-top:36px;border-top:1px solid var(--border);}
+.detail-key{font-size:10px;letter-spacing:0.2em;color:var(--teal);margin-bottom:5px;}
+.detail-val{font-size:14px;color:var(--text);}
+.badge-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border:1px solid rgba(201,168,76,0.3);background:var(--gold-dim);font-size:11px;letter-spacing:0.1em;color:var(--gold);}
+.music-quote{margin-top:40px;padding:28px 32px;border-left:3px solid var(--gold);background:var(--gold-dim);position:relative;}
+.music-quote::before{content:'♩';position:absolute;top:-14px;left:20px;font-size:28px;color:var(--gold);opacity:0.6;}
+.music-quote p{font-family:'Noto Serif SC',serif;font-size:15px;line-height:1.9;color:var(--text);}
+.music-quote cite{display:block;margin-top:12px;font-size:11px;letter-spacing:0.15em;color:var(--gold);font-style:normal;}
+.timeline-section{background:var(--ink);}
+.timeline{position:relative;padding-left:36px;max-width:860px;}
+.timeline::before{content:'';position:absolute;left:0;top:6px;bottom:0;width:1px;background:linear-gradient(to bottom,var(--teal),var(--gold),transparent);opacity:0.3;}
+.timeline-item{position:relative;margin-bottom:60px;opacity:0;transform:translateX(-24px);transition:opacity 0.6s,transform 0.6s;}
+.timeline-item.visible{opacity:1;transform:translateX(0);}
+.timeline-item::before{content:'';position:absolute;left:-40px;top:10px;width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 16px rgba(201,168,76,0.6);}
+.timeline-period{font-size:11px;letter-spacing:0.15em;color:var(--teal);margin-bottom:4px;}
+.timeline-role{font-family:'Noto Serif SC',serif;font-size:22px;font-weight:700;margin-bottom:3px;line-height:1.3;}
+.timeline-company{font-size:12px;color:var(--text-muted);margin-bottom:16px;}
+.timeline-points{list-style:none;}
+.timeline-points li{padding-left:18px;position:relative;font-size:13.5px;color:rgba(238,233,223,0.68);line-height:1.85;margin-bottom:6px;}
+.timeline-points li::before{content:'—';position:absolute;left:0;color:var(--gold);opacity:0.5;}
+.expertise-section{background:var(--surface);}
+.expertise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.expertise-card{background:var(--surface2);padding:44px 36px;border:1px solid transparent;transition:all 0.4s;position:relative;overflow:hidden;}
+.expertise-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--teal),var(--gold));transform:scaleX(0);transition:transform 0.4s;}
+.expertise-card:hover{border-color:var(--border);background:#181826;}
+.expertise-card:hover::after{transform:scaleX(1);}
+.expertise-num{font-family:'Noto Serif SC',serif;font-size:52px;font-weight:700;color:var(--gold);opacity:0.18;line-height:1;margin-bottom:20px;}
+.expertise-title{font-family:'Noto Serif SC',serif;font-size:20px;font-weight:700;margin-bottom:12px;}
+.expertise-desc{font-size:13px;color:var(--text-muted);line-height:1.9;}
+.impact-section{background:linear-gradient(145deg,#04050A 0%,#061210 60%,#04050A 100%);border-top:1px solid rgba(29,184,170,0.15);border-bottom:1px solid rgba(29,184,170,0.15);}
+.impact-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.impact-highlight{font-family:'Noto Serif SC',serif;font-size:clamp(26px,3.2vw,44px);font-weight:700;line-height:1.35;margin-bottom:28px;letter-spacing:0.03em;}
+.impact-highlight em{font-style:normal;color:var(--gold);}
+.impact-body{font-size:14px;color:var(--text-muted);line-height:2;margin-bottom:20px;}
+.impact-stats{display:flex;flex-direction:column;gap:0;}
+.impact-stat{display:flex;gap:28px;align-items:flex-start;padding:28px 0;border-bottom:1px solid var(--border);}
+.impact-stat:last-child{border-bottom:none;}
+.impact-num{font-family:'Noto Serif SC',serif;font-size:44px;font-weight:700;background:linear-gradient(135deg,var(--teal),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;min-width:120px;}
+.impact-label{font-size:13px;color:var(--text-muted);line-height:1.8;}
+.impact-label strong{display:block;color:var(--text);font-weight:500;margin-bottom:4px;}
+.speaking-section{background:var(--ink);}
+.speaking-topics{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.topic-item{border:1px solid var(--border);padding:36px;transition:all 0.3s;position:relative;overflow:hidden;}
+.topic-item::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--teal-dim),transparent);opacity:0;transition:opacity 0.3s;}
+.topic-item:hover{border-color:rgba(29,184,170,0.4);}
+.topic-item:hover::before{opacity:1;}
+.topic-icon{font-size:30px;margin-bottom:18px;position:relative;z-index:1;}
+.topic-title{font-family:'Noto Serif SC',serif;font-size:20px;font-weight:700;margin-bottom:10px;position:relative;z-index:1;}
+.topic-desc{font-size:13px;color:var(--text-muted);line-height:1.9;position:relative;z-index:1;}
+.contact-section{background:var(--surface);text-align:center;padding:130px 60px;}
+.contact-tagline{font-family:'Noto Serif SC',serif;font-size:clamp(30px,4vw,52px);font-weight:700;line-height:1.3;max-width:720px;margin:0 auto 28px;letter-spacing:0.04em;}
+.contact-tagline em{font-style:normal;color:var(--gold);}
+.contact-sub{font-size:14px;color:var(--text-muted);max-width:500px;margin:0 auto 60px;line-height:2;}
+.contact-cards{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;}
+.contact-card{border:1px solid var(--border);padding:28px 36px;text-decoration:none;color:var(--text);transition:all 0.3s;min-width:210px;}
+.contact-card:hover{background:var(--gold-dim);border-color:var(--gold);}
+.contact-card-label{font-size:10px;letter-spacing:0.15em;color:var(--gold);margin-bottom:8px;}
+.contact-card-val{font-family:'Noto Serif SC',serif;font-size:16px;}
+.footer{text-align:center;padding:32px;font-size:12px;letter-spacing:0.1em;color:var(--text-muted);border-top:1px solid var(--border);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@media(max-width:900px){nav{padding:20px 24px;}.nav-links{display:none;}section{padding:72px 24px;}.hero{padding:0 24px 72px;}.hero-stats{right:24px;}.about{grid-template-columns:1fr;gap:40px;}.about-photo-wrap{max-height:340px;aspect-ratio:16/9;}.expertise-grid,.speaking-topics{grid-template-columns:1fr;}.impact-inner{grid-template-columns:1fr;gap:48px;}.contact-section{padding:80px 24px;}}
 </style>
 </head>
 <body>
@@ -344,6 +127,7 @@ section { position: relative; z-index: 1; padding: 110px 60px; }
     <li><a href="#speaking">演讲主题</a></li>
     <li><a href="#contact">联系方式</a></li>
   </ul>
+  <a class="lang-switch" href="index.html">English</a>
 </nav>
 
 <div class="hero">
@@ -351,11 +135,13 @@ section { position: relative; z-index: 1; padding: 110px 60px; }
   <div class="hero-overlay"></div>
   <div class="hero-pulse"></div>
   <div class="hero-content">
-    <p class="hero-eyebrow">国际商业领袖 · ESG先驱 · 主题演讲人</p>
-    <h1 class="hero-name">郭璇儿<em>Tony Tse</em></h1>
+    <p class="hero-eyebrow">国际商业领袖 · ESG战略专家 · 主题演讲人</p>
+    <h1 class="hero-name">郭璇儿</h1>
+    <p class="hero-sub">Tony Tse</p>
     <div class="hero-tagline">
       <span>亚太地区</span>
       <span>可持续未来</span>
+      <span>材料科学</span>
       <span>未来愿景</span>
     </div>
   </div>
@@ -374,17 +160,21 @@ section { position: relative; z-index: 1; padding: 110px 60px; }
     <p class="section-label">个人简介</p>
     <h2 class="section-title">纵横四海<br>成就<em>非凡</em>事业</h2>
     <p class="about-bio">从温哥华唐人街的零售银行经理，到开拓亚太15个市场的消费品牌先锋 — 郭璇儿在<em>商业、文化与创新</em>的交汇处深耕四十余载。</p>
-    <p class="about-body">毕业于不列颠哥伦比亚大学 Sauder 商学院（院长荣誉榜），郭璇儿曾在加拿大皇家银行、辉柏嘉（Faber-Castell）、飞利浦、WestPoint Stevens、杜邦/英威达及 Advansa 担任高级领导职务。其职业生涯的核心在于将西方品牌引入亚洲市场 — 在中国、日本、澳大利亚等地建立供应链、开设旗舰店并推动尖端技术商业化。</p>
-    <p class="about-body">如今，郭璇儿是大七全球可持续发展有限公司（Major 7 Global Sustainability Co. Ltd.）的创始人兼首席执行官，聚焦于可持续材料科学与ESG战略领域，引领全球品牌在亚太地区实现绿色转型。</p>
+    <p class="about-body">毕业于不列颠哥伦比亚大学 Sauder 商学院（1987年院长荣誉榜），郭璇儿曾在加拿大皇家银行、辉柏嘉（Faber-Castell）、飞利浦、WestPoint Stevens、杜邦/英威达及 Advansa 担任高级领导职务。其职业生涯的核心在于将西方品牌引入亚洲市场 — 在中国、日本、澳大利亚等地建立供应链、开设旗舰店并推动尖端技术商业化。</p>
+    <p class="about-body">如今，郭璇儿是大七全球可持续发展有限公司（Major 7 Global Sustainability Co. Ltd.）的创始人兼首席执行官，为在亚太地区运营的全球品牌提供ESG战略与可持续材料科学咨询。EcoVadis ESG银牌认证，联合国可持续发展目标（UN SDG）对标运营。</p>
+    <div class="badge-row">
+      <span class="badge">◆ EcoVadis ESG 银牌认证</span>
+      <span class="badge">◆ 联合国 UN SDG 对标</span>
+    </div>
     <div class="music-quote">
       <p>"不是季度利润，而是四分音符的琶音。音乐不是成功的障碍，而是认知自身极限的智慧，是驱动创新的创造力，是帮助商业适应瞬息万变世界的灵活性。没有任何商业模式能做到这些。音乐，永恒不灭。"</p>
-      <cite>— 郭璇儿</cite>
+      <cite>— 郭璇儿 · Tony Tse</cite>
     </div>
     <div class="about-details">
-      <div><div class="detail-key">教育背景</div><div class="detail-val">不列颠哥伦比亚大学<br>商学学士，1987年院长荣誉榜</div></div>
+      <div><div class="detail-key">教育背景</div><div class="detail-val">不列颠哥伦比亚大学<br><span style="font-size:12px;color:var(--text-muted)">商学学士，1987年院长荣誉榜</span></div></div>
       <div><div class="detail-key">语言能力</div><div class="detail-val">英语 · 粤语 · 普通话</div></div>
       <div><div class="detail-key">国籍</div><div class="detail-val">加拿大 · 香港</div></div>
-      <div><div class="detail-key">专业方向</div><div class="detail-val">亚太战略<br>可持续发展与ESG</div></div>
+      <div><div class="detail-key">专业方向</div><div class="detail-val">亚太战略<br>ESG与可持续材料</div></div>
     </div>
   </div>
 </section>
@@ -399,10 +189,11 @@ section { position: relative; z-index: 1; padding: 110px 60px; }
       <div class="timeline-role">创始人兼首席执行官</div>
       <div class="timeline-company">大七全球可持续发展有限公司 · Major 7 Global Sustainability Co. Ltd.</div>
       <ul class="timeline-points">
-        <li>专注于可持续材料科学与ESG战略，为亚太地区全球品牌提供绿色转型解决方案</li>
-        <li>主要客户：Cell Solution™ 等创新材料科技企业</li>
+        <li>为亚太地区全球品牌提供ESG战略与可持续材料科学咨询</li>
         <li>EcoVadis ESG 银牌认证 · 联合国可持续发展目标（UN SDG）对标运营</li>
-        <li>以英语及普通话在国际会议上发表主题演讲，涵盖ESG认证、生物多样性及纺织循环再生</li>
+        <li>主要客户：Cell Solution™ — 创新可持续材料科技企业</li>
+        <li>合作品牌：Adidas、Coca-Cola、Marks &amp; Spencer、Henkel、Advansa</li>
+        <li>以英语及普通话在国际会议发表主题演讲 — ESG认证、可持续纺织、生物多样性、T2T循环再生</li>
       </ul>
     </div>
 
@@ -412,7 +203,7 @@ section { position: relative; z-index: 1; padding: 110px 60px; }
       <div class="timeline-company">DuPontSA（土耳其）/ Advansa</div>
       <ul class="timeline-points">
         <li>拓展品牌在中国顶级家纺企业的合作：罗莱、水星、梦洁、富安娜等</li>
-        <li>推出杜邦"Suprelle"线上旗舰店，荣获天猫、京东、唯品会2022年度"最佳消费体验"前五名</li>
+        <li>推出杜邦"Suprelle"线上旗舰店 — 荣获天猫、京东、唯品会2022年度"最佳消费体验"前五名</li>
       </ul>
     </div>
 
@@ -421,9 +212,9 @@ section { position: relative; z-index: 1; padding: 110px 60px; }
       <div class="timeline-role">亚太及中国区聚酯家纺市场部经理</div>
       <div class="timeline-company">杜邦（DuPont）/ 英威达（Invista）</div>
       <ul class="timeline-points">
-        <li>率先将西方首个远红外线保暖技术商业化（现"Celiant"品牌）</li>
+        <li>率先将西方首个远红外线（FIR）保暖技术商业化（现"Celiant"品牌）</li>
         <li>研发纳米功能性产品：相变材料控温、防螨抗菌整理、电子睡眠监测枕等</li>
-        <li>整合杜邦技术于消费品牌 Suprelle、Ultrelle、Climarelle</li>
+        <li>整合杜邦技术于消费品牌 Suprelle、Ultrelle 及 Climarelle</li>
       </ul>
     </div>
 
@@ -476,61 +267,27 @@ section { position: relative; z-index: 1; padding: 110px 60px; }
   <p class="section-label">专业领域</p>
   <h2 class="section-title">核心<em>能力</em></h2>
   <div class="expertise-grid">
-    <div class="expertise-card">
-      <div class="expertise-num">01</div>
-      <div class="expertise-title">亚太市场准入</div>
-      <div class="expertise-desc">深度掌握中国、香港、日本、韩国、澳新及东南亚的分销网络、零售渠道与品牌建设。</div>
-    </div>
-    <div class="expertise-card">
-      <div class="expertise-num">02</div>
-      <div class="expertise-title">供应链建设</div>
-      <div class="expertise-desc">从工厂到全球零售 — 为跨国品牌搭建直供供应链，覆盖沃尔玛、好市多等15+市场主要零售商。</div>
-    </div>
-    <div class="expertise-card">
-      <div class="expertise-num">03</div>
-      <div class="expertise-title">材料科学创新</div>
-      <div class="expertise-desc">先行推进功能性纺织品的开发 — 远红外线保暖、纳米技术、T2T循环再生，以及面向全球品牌的可持续材料解决方案。</div>
-    </div>
-    <div class="expertise-card">
-      <div class="expertise-num">04</div>
-      <div class="expertise-title">ESG与可持续战略</div>
-      <div class="expertise-desc">EcoVadis银牌认证。在UN SDG对标、生物多样性保护及亚洲供应链ESG认证方面拥有创始人级别的实战经验。</div>
-    </div>
-    <div class="expertise-card">
-      <div class="expertise-num">05</div>
-      <div class="expertise-title">品牌商业化</div>
-      <div class="expertise-desc">将西方技术与消费品牌成功引入亚洲 — 从杜邦功能纺织品，到WestPoint家居产品，再到辉柏嘉专业设备。</div>
-    </div>
-    <div class="expertise-card">
-      <div class="expertise-num">06</div>
-      <div class="expertise-title">跨文化领导力</div>
-      <div class="expertise-desc">三语（英语、粤语、普通话），持双重国籍 — 独具优势，连接西方战略与东方执行。商业如即兴爵士，非固定乐谱。</div>
-    </div>
+    <div class="expertise-card"><div class="expertise-num">01</div><div class="expertise-title">亚太市场准入</div><div class="expertise-desc">深度掌握中国、香港、日本、韩国、澳新及东南亚的分销网络、零售渠道与品牌建设。</div></div>
+    <div class="expertise-card"><div class="expertise-num">02</div><div class="expertise-title">供应链建设</div><div class="expertise-desc">从工厂到全球零售 — 为跨国品牌搭建直供供应链，覆盖沃尔玛、好市多等15+市场主要零售商。</div></div>
+    <div class="expertise-card"><div class="expertise-num">03</div><div class="expertise-title">材料科学创新</div><div class="expertise-desc">先行推进功能性纺织品开发 — 远红外线保暖、纳米技术、T2T循环再生，以及面向全球品牌的可持续材料解决方案。</div></div>
+    <div class="expertise-card"><div class="expertise-num">04</div><div class="expertise-title">ESG与可持续战略</div><div class="expertise-desc">EcoVadis银牌认证。在UN SDG对标、生物多样性保护及亚洲供应链ESG认证方面拥有创始人级别的实战经验。</div></div>
+    <div class="expertise-card"><div class="expertise-num">05</div><div class="expertise-title">品牌商业化</div><div class="expertise-desc">将西方技术与消费品牌成功引入亚洲 — 从杜邦功能纺织品，到WestPoint家居产品，再到辉柏嘉专业设备。</div></div>
+    <div class="expertise-card"><div class="expertise-num">06</div><div class="expertise-title">跨文化领导力</div><div class="expertise-desc">三语（英语、粤语、普通话），持双重国籍 — 独具优势，连接西方战略与东方执行。商业如即兴爵士，非固定乐谱。</div></div>
   </div>
 </section>
 
-<section class="sustainability-section">
-  <div class="sustainability-inner">
+<section class="impact-section">
+  <div class="impact-inner">
     <div>
       <p class="section-label">影响力</p>
-      <h2 class="sustain-highlight">将废弃转化为<em>价值</em> —<br>推动全球可持续变革</h2>
-      <span class="ecovadis-badge">◆ EcoVadis ESG 银牌认证</span>
-      <p class="sustain-body">大七全球可持续发展有限公司致力于为亚太地区的全球品牌提供ESG战略咨询与可持续材料科学解决方案。公司在中国供应链生态系统中深度布局，协助品牌实现联合国可持续发展目标（UN SDG）对标，推动绿色转型。</p>
-      <p class="sustain-body">合作品牌：Adidas · Coca-Cola · Marks &amp; Spencer · Henkel · Advansa · Cell Solution™</p>
+      <h2 class="impact-highlight">将洞察转化为<em>影响力</em> —<br>推动全球可持续变革</h2>
+      <p class="impact-body">大七全球可持续发展有限公司为亚太地区全球品牌提供ESG战略咨询与可持续材料科学解决方案。公司深度扎根于中国供应链生态系统，协助品牌实现联合国可持续发展目标（UN SDG）对标与EcoVadis认证，推动真正意义上的绿色转型。</p>
+      <p class="impact-body" style="font-size:13px;">合作品牌：Adidas · Coca-Cola · Marks &amp; Spencer · Henkel · Advansa · Cell Solution™</p>
     </div>
-    <div class="sustain-stats">
-      <div class="sustain-stat">
-        <div class="sustain-num">35+</div>
-        <div class="sustain-label"><strong>年跨市场经验</strong>横跨亚太、欧洲、北美15+市场的商业领导力</div>
-      </div>
-      <div class="sustain-stat">
-        <div class="sustain-num">15+</div>
-        <div class="sustain-label"><strong>服务市场</strong>建立覆盖中国、日本、韩国、澳新及东南亚的完整分销体系</div>
-      </div>
-      <div class="sustain-stat">
-        <div class="sustain-num">UN SDG</div>
-        <div class="sustain-label"><strong>对标运营</strong>中国供应链生态系统与联合国可持续发展目标全面对标</div>
-      </div>
+    <div class="impact-stats">
+      <div class="impact-stat"><div class="impact-num">35+</div><div class="impact-label"><strong>年领导经验</strong>横跨零售银行、消费品、先进材料与可持续发展，覆盖15+市场</div></div>
+      <div class="impact-stat"><div class="impact-num">15+</div><div class="impact-label"><strong>服务市场</strong>中国、日本、韩国、澳新及东南亚全面覆盖</div></div>
+      <div class="impact-stat"><div class="impact-num">UN SDG</div><div class="impact-label"><strong>对标运营</strong>中国供应链生态系统与联合国可持续发展目标全面对标</div></div>
     </div>
   </div>
 </section>
@@ -539,26 +296,10 @@ section { position: relative; z-index: 1; padding: 110px 60px; }
   <p class="section-label">演讲主题</p>
   <h2 class="section-title">国际会议<em>主题演讲</em></h2>
   <div class="speaking-topics">
-    <div class="topic-item">
-      <div class="topic-icon">🌿</div>
-      <div class="topic-title">亚洲供应链ESG认证</div>
-      <div class="topic-desc">解析ESG合规、EcoVadis认证及品牌协同，深入探讨中国及亚太供应链的绿色转型路径。</div>
-    </div>
-    <div class="topic-item">
-      <div class="topic-icon">🧵</div>
-      <div class="topic-title">可持续纺织与T2T循环再生</div>
-      <div class="topic-desc">探索纺织品循环再利用（T2T）技术前沿及材料科学创新，及其在全球服装与家纺行业的商业化应用。</div>
-    </div>
-    <div class="topic-item">
-      <div class="topic-icon">🌏</div>
-      <div class="topic-title">未来愿景：人文与商业</div>
-      <div class="topic-desc">创造力、音乐与适应力 — 探讨下一代领导者为何比刻板的企业框架更需要直觉与即兴应变能力。</div>
-    </div>
-    <div class="topic-item">
-      <div class="topic-icon">🔬</div>
-      <div class="topic-title">材料科学与绿色品牌创新</div>
-      <div class="topic-desc">将突破性材料技术推向市场 — 从功能性纺织品到可持续解决方案，解码品牌创新背后的商业逻辑。</div>
-    </div>
+    <div class="topic-item"><div class="topic-icon">🌿</div><div class="topic-title">亚洲供应链ESG认证</div><div class="topic-desc">解析EcoVadis认证、UN SDG对标及品牌协同，深入探讨中国及亚太供应链的绿色转型路径。</div></div>
+    <div class="topic-item"><div class="topic-icon">🧵</div><div class="topic-title">可持续纺织与T2T循环再生</div><div class="topic-desc">探索纺织品循环再利用（T2T）技术前沿及材料科学创新，及其在全球服装与家纺行业的商业化应用。</div></div>
+    <div class="topic-item"><div class="topic-icon">🌏</div><div class="topic-title">未来愿景：人文与商业</div><div class="topic-desc">创造力、音乐与适应力 — 探讨下一代领导者为何比刻板的企业框架更需要直觉与即兴应变能力。</div></div>
+    <div class="topic-item"><div class="topic-icon">🔬</div><div class="topic-title">材料科学与绿色品牌创新</div><div class="topic-desc">将突破性材料技术推向市场 — 从功能性纺织品到可持续解决方案，解码品牌创新背后的商业逻辑。</div></div>
   </div>
 </section>
 
@@ -567,32 +308,20 @@ section { position: relative; z-index: 1; padding: 110px 60px; }
   <h2 class="contact-tagline">期待与您<em>深入交流</em></h2>
   <p class="contact-sub">无论您正在寻找商业合作机会、邀请主题演讲，还是探索可持续发展的协作可能 — 郭璇儿期待与您展开对话。</p>
   <div class="contact-cards">
-    <a class="contact-card" href="mailto:tonytse666@gmail.com">
-      <div class="contact-card-label">个人邮箱</div>
-      <div class="contact-card-val">tonytse666@gmail.com</div>
-    </a>
-    <a class="contact-card" href="mailto:MAJOR7CONSULT@qq.com">
-      <div class="contact-card-label">商务邮箱</div>
-      <div class="contact-card-val">MAJOR7CONSULT@qq.com</div>
-    </a>
-    <a class="contact-card" href="tel:+8613524668880">
-      <div class="contact-card-label">电话 / 微信</div>
-      <div class="contact-card-val">+86 135 2466 8880</div>
-    </a>
+    <a class="contact-card" href="mailto:tonytse666@gmail.com"><div class="contact-card-label">个人邮箱</div><div class="contact-card-val">tonytse666@gmail.com</div></a>
+    <a class="contact-card" href="mailto:MAJOR7CONSULT@qq.com"><div class="contact-card-label">商务邮箱</div><div class="contact-card-val">MAJOR7CONSULT@qq.com</div></a>
+    <a class="contact-card" href="tel:+8613524668880"><div class="contact-card-label">电话 / 微信</div><div class="contact-card-val">+86 135 2466 8880</div></a>
   </div>
 </section>
 
 <footer class="footer">
-  郭璇儿 &nbsp;·&nbsp; 国际商业领袖 &nbsp;·&nbsp; ESG先驱 &nbsp;·&nbsp; 主题演讲人
+  郭璇儿 · Tony Tse &nbsp;·&nbsp; 国际商业领袖 &nbsp;·&nbsp; ESG战略专家 &nbsp;·&nbsp; 主题演讲人
+  &nbsp;|&nbsp; <a href="index.html" style="color:var(--teal);text-decoration:none;">English</a>
 </footer>
 
 <script>
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 100);
-    }
-  });
+  entries.forEach((entry, i) => { if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), i * 100); } });
 }, { threshold: 0.12 });
 document.querySelectorAll('.timeline-item').forEach(el => observer.observe(el));
 </script>
